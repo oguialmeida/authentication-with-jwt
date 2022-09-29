@@ -4,7 +4,7 @@
 #### - Interface que consome esses dados e realiza a autenticação
 ## Como usar?
 #### - Necessário ter Python3 instalado
-#### - Instalar os pacotes contidos no arquivo 'requeriments.txt'
-#### - Digite: python servidor.py
+#### - Instalar os pacotes contidos do arquivo 'requeriments.txt'
+#### - Digite: python server.py
 #### - Login: guilherme
 #### - Senha: 123456
