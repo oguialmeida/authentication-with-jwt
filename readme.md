@@ -5,7 +5,6 @@
 ## Como usar?
 #### - Necessário ter Python3 instalado
 #### - Instalar os pacotes contidos no arquivo 'requeriments.txt'
-#### - Ligando o servidor -> na pasta 'server' digite: python servidor.py
-#### - Realizando o login -> na pasta 'interface'digite: python janela.py
+#### - Digite: python servidor.py
 #### - Login: guilherme
 #### - Senha: 123456
