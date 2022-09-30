@@ -7,5 +7,5 @@
 #### - Instalar os pacotes contidos do arquivo 'requeriments.txt'
 #### - Digite: python server.py
 #### - Acessar: localhost:5000
-#### - Login: guilherme
+#### - Login: Guilherme
 #### - Senha: 123456
