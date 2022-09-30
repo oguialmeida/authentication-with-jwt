@@ -41,11 +41,11 @@ def auth():
 
 @app.route('/login', methods=['POST'])
 def login():
-    if request.form['guilherme'] and request.form['password'] == '123456':
+    if request.form['username'] == 'Guilherme' and request.form['password'] == '123456':
         session['logged_in'] = True
 
         token = jwt.encode({
-            'user': request.form['guilherme'],
+            'user': request.form['username'],
             'expiration': str(datetime.utcnow() + timedelta(seconds=60))
         },
             app.config['SECRET_KEY'])
