@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Input</title>
+</head>
+<body>
+    <div id="app" :style="styles.body">
+        <div :style="styles.container">
+            <h2 :style="styles.heading">Qual a sua renda mensal?</h2>
+            <form @submit.prevent="handleSubmit" :style="styles.form">
+                <label for="salary" :style="styles.label">Salário:</label>
+                <input type="number" id="salary" v-model="salary" required :style="styles.input">
+
+                <button type="button" :style="[styles.button, styles.addButton]" @click="addExpense">+</button>
+                <button type="submit" :style="styles.button">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                salary: '',
+                expenses: [],
+                styles: {
+                    body: {
+                        fontFamily: 'Arial, sans-serif',
+                        backgroundColor: '#f4f4f4',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: '100vh',
+                        margin: '0'
+                    },
+                    container: {
+                        backgroundColor: 'white',
+                        padding: '20px',
+                        borderRadius: '8px',
+                        boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+                        maxWidth: '400px',
+                        width: '100%'
+                    },
+                    heading: {
+                        marginBottom: '20px',
+                        textAlign: 'center'
+                    },
+                    form: {
+                        display: 'flex',
+                        flexDirection: 'column'
+                    },
+                    label: {
+                        marginBottom: '5px',
+                        fontWeight: 'bold'
+                    },
+                    input: {
+                        marginBottom: '15px',
+                        padding: '10px',
+                        border: '1px solid #ddd',
+                        borderRadius: '4px'
+                    },
+                    button: {
+                        padding: '15px',
+                        border: 'none',
+                        borderRadius: '4px',
+                        backgroundColor: '#28a745',
+                        color: 'white',
+                        fontSize: '16px',
+                        cursor: 'pointer',
+                        marginBottom: '10px',
+                        display: 'block',
+                        width: '100%'
+                    },
+                    addButton: {
+                        fontSize: '20px',
+                        width: '50px',
+                        margin: '0 auto 10px'
+                    }
+                }
+            },
+            methods: {
+                addExpense() {
+                    this.expenses.push({ amount: 0 });
+                },
+                handleSubmit() {
+                    alert(`Salário: ${this.salary}\nDespesas: ${this.expenses.map(exp => exp.amount).join(', ')}`);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

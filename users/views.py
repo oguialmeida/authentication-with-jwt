@@ -1,8 +1,7 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
-from django.contrib.auth import login as login_fmk
+from django.contrib.auth import authenticate, login as login_fmk
 from django.contrib.auth.decorators import login_required
 
 def register(request):
@@ -16,13 +15,12 @@ def register(request):
         user = User.objects.filter(username=username).first()
 
         if user:
-            return HttpResponse('Nome de usuário não diponível.')
+            return HttpResponse('Nome de usuário não disponível.')
         
-        user = User.objects.create_user(username=username,email=email,password=password)
+        user = User.objects.create_user(username=username, email=email, password=password)
         user.save()
 
         return HttpResponse('Cadastro realizado.')
-
 
 def login(request):
     if request.method == 'GET':
@@ -35,11 +33,10 @@ def login(request):
 
         if user:
             login_fmk(request, user)
-            return HttpResponse('Autenticado')
+            return redirect('home_page')  # Redireciona para a view home_page
         else:
             return HttpResponse('Nome de usuário ou senha incorretos!')
-        
+
 @login_required(login_url='/auth/login/')
 def home_page(request):
-    return HttpResponse('Tela inicial.')
-
+    return render(request, 'home_page.html')  # Renderiza a página HTML
