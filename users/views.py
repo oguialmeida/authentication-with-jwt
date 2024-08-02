@@ -39,4 +39,4 @@ def login(request):
 
 @login_required(login_url='/auth/login/')
 def home_page(request):
-    return render(request, 'home_page.html')  # Renderiza a página HTML
+    return render(request, 'incomes.html')  # Renderiza a página HTML
